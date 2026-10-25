@@ -8,3 +8,4 @@ export type Product = {
   categorias: string[];
   tallas: string[];
   descripcion: string;
+};

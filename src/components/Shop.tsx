@@ -259,7 +259,7 @@ export function Shop() {
         seen.add(category);
       }
     }
-    return [...seen].sort((a, b) => a.localeCompare(b, "es"));
+    return Array.from(seen).sort((a, b) => a.localeCompare(b, "es"));
   }, [products]);
 
   const visible = useMemo(() => {
