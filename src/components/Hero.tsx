@@ -5,8 +5,8 @@ import { PerezLogo } from "@/components/PerezLogo";
 
 export const Hero = () => {
   return (
-    <Container className="flex flex-col items-center gap-10 lg:flex-row lg:flex-nowrap">
-      <div className="w-full min-w-0 lg:w-[42%]">
+    <Container className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <div className="w-full min-w-0">
         <h1 className="sr-only">PEREZ</h1>
         <span className="hidden lg:inline-flex">
           <PerezLogo height={72} />
@@ -29,7 +29,7 @@ export const Hero = () => {
           Ver catálogo
         </Link>
       </div>
-      <div className="w-full min-w-0 lg:w-7/12">
+      <div className="w-full min-w-0">
         <div className="w-full overflow-hidden rounded-2xl bg-perez-negro aspect-video">
           <HeroVideo />
         </div>

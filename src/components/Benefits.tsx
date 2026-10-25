@@ -21,10 +21,10 @@ interface BenefitsProps {
 export const Benefits = (props: Readonly<BenefitsProps>) => {
   const { data } = props;
   return (
-      <Container className="flex flex-wrap mb-12 overflow-hidden lg:mb-20 lg:gap-10 lg:flex-nowrap">
+      <Container className="mb-12 grid items-center gap-8 lg:mb-20 lg:grid-cols-2 lg:gap-12">
         <div
-          className={`flex items-center justify-center w-full lg:w-1/2 ${
-            props.imgPos === "right" ? "lg:order-1" : ""
+          className={`flex items-center justify-center w-full min-w-0 ${
+            props.imgPos === "right" ? "lg:order-2" : ""
           }`}>
           <div className="w-full max-w-xl">
             {data.images?.length === 2 ? (
@@ -63,7 +63,7 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
         </div>
 
         <div
-          className={`flex flex-wrap items-center w-full lg:w-1/2 ${
+          className={`flex flex-wrap items-center w-full min-w-0 ${
             data.imgPos === "right" ? "lg:justify-end" : ""
           }`}>
           <div>

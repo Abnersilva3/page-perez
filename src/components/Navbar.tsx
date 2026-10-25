@@ -24,7 +24,7 @@ export const Navbar = () => {
         <>
           <BodyLock active={open} />
           <div className="sticky top-0 z-50 w-full border-b border-perez-negro/10 bg-perez-marfil/90 backdrop-blur dark:border-white/10 dark:bg-perez-negro/90">
-          <nav className="container relative flex items-center justify-between px-4 py-3 mx-auto xl:px-1">
+          <nav className="container relative flex items-center justify-between px-5 py-3 mx-auto sm:px-8">
             <Link href="/" aria-label="PEREZ inicio" className="shrink-0">
               <PerezLogo markOnly height={28} />
             </Link>
