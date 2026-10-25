@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PopupWidget } from "@/components/PopupWidget";
 import { ShopProviders } from "@/components/ShopProviders";
 
 const outfit = Outfit({
@@ -35,16 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" className="dark">
       <body className={`${outfit.className} ${outfit.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <ShopProviders>
-            <Navbar />
-            <div>{children}</div>
-            <Footer />
-            <PopupWidget />
-          </ShopProviders>
-        </ThemeProvider>
+        <ShopProviders>
+          <Navbar />
+          <div>{children}</div>
+          <Footer />
+        </ShopProviders>
       </body>
     </html>
   );

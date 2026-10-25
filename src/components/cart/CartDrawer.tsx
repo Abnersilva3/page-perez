@@ -32,7 +32,7 @@ export function CartDrawer() {
       />
       <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-perez-marfil text-perez-negro shadow-2xl dark:bg-perez-negro dark:text-perez-marfil">
         <div className="flex items-center justify-between border-b border-perez-champagne/30 px-5 py-4">
-          <h2 className="text-lg tracking-[0.15em] uppercase">Carrito</h2>
+          <h2 className="text-lg uppercase">Carrito</h2>
           <button onClick={() => setOpen(false)} className="text-sm text-perez-oliva dark:text-perez-champagne">
             Cerrar
           </button>
@@ -54,7 +54,7 @@ export function CartDrawer() {
                   <div className="min-w-0 flex-1">
                     <p className="font-medium">{line.product.nombre}</p>
                     {line.talla ? (
-                      <p className="text-xs tracking-[0.15em] uppercase text-perez-terracota">
+                      <p className="text-xs uppercase text-perez-terracota">
                         Talla {line.talla}
                       </p>
                     ) : null}

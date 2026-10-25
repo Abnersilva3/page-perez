@@ -7,13 +7,13 @@ import { ChevronUpIcon } from "@heroicons/react/24/solid";
 export const Faq = () => {
   return (
     <Container className="!p-0">
-      <div id="faq" className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
+      <div id="faq" className="w-full max-w-2xl p-2 mx-auto rounded-2xl scroll-mt-24">
         {faqdata.map((item) => (
           <div key={item.question} className="mb-5">
             <Disclosure>
               {({ open }) => (
                 <>
-                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-perez-negro rounded-lg bg-white/70 hover:bg-perez-champagne/30 focus:outline-none focus-visible:ring focus-visible:ring-perez-champagne dark:bg-perez-noche dark:text-perez-marfil">
+                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-3 text-left text-perez-marfil rounded-lg bg-perez-noche hover:bg-white/5 focus:outline-none sm:py-4 sm:text-lg">
                     <span>{item.question}</span>
                     <ChevronUpIcon
                       className={`${
@@ -53,7 +53,7 @@ const faqdata = [
   {
     question: "¿Hacen envíos o solo venden en tienda?",
     answer:
-      "Puedes visitarnos en la boutique o escribirnos para disponibilidad, reservas y envíos. El botón de contacto está siempre visible.",
+      "Puedes visitarnos en la boutique o escribirnos por WhatsApp para disponibilidad, reservas y envíos.",
   },
   {
     question: "¿Cómo compro desde la web?",

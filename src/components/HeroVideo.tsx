@@ -57,7 +57,7 @@ export function HeroVideo() {
   return (
     <video
       ref={videoRef}
-      className={`object-cover w-full h-full transition-opacity duration-700 ease-in-out ${
+      className={`object-contain w-full h-full transition-opacity duration-700 ease-in-out ${
         fading ? "opacity-0" : "opacity-100"
       }`}
       muted
