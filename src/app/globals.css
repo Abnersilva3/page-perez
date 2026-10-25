@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   html,
   body {
-    @apply dark:bg-trueGray-900;
+    @apply bg-perez-marfil text-perez-negro overflow-x-hidden dark:bg-perez-negro dark:text-perez-marfil;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
   }
 }
-

@@ -7,21 +7,21 @@ import { ChevronUpIcon } from "@heroicons/react/24/solid";
 export const Faq = () => {
   return (
     <Container className="!p-0">
-      <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
-        {faqdata.map((item, index) => (
+      <div id="faq" className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
+        {faqdata.map((item) => (
           <div key={item.question} className="mb-5">
             <Disclosure>
               {({ open }) => (
                 <>
-                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-gray-800 rounded-lg bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-indigo-100 focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200">
+                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-perez-negro rounded-lg bg-white/70 hover:bg-perez-champagne/30 focus:outline-none focus-visible:ring focus-visible:ring-perez-champagne dark:bg-perez-noche dark:text-perez-marfil">
                     <span>{item.question}</span>
                     <ChevronUpIcon
                       className={`${
                         open ? "transform rotate-180" : ""
-                      } w-5 h-5 text-indigo-500`}
+                      } w-5 h-5 text-perez-terracota`}
                     />
                   </DisclosureButton>
-                  <DisclosurePanel className="px-4 pt-4 pb-2 text-gray-500 dark:text-gray-300">
+                  <DisclosurePanel className="px-4 pt-4 pb-2 text-perez-oliva dark:text-perez-champagne">
                     {item.answer}
                   </DisclosurePanel>
                 </>
@@ -32,25 +32,32 @@ export const Faq = () => {
       </div>
     </Container>
   );
-}
+};
 
 const faqdata = [
   {
-    question: "Is this template completely free to use?",
-    answer: "Yes, this template is completely free to use.",
-  },
-  {
-    question: "Can I use it in a commercial project?",
-    answer: "Yes, this you can.",
-  },
-  {
-    question: "What is your refund policy? ",
+    question: "¿PEREZ es solo una marca o también una tienda?",
     answer:
-      "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
+      "Las dos cosas. PEREZ es una boutique y, además, tiene su propia línea. En el local encuentras la marca original y otras marcas que seleccionamos.",
   },
   {
-    question: "Do you offer technical support? ",
+    question: "¿Qué otras marcas puedo encontrar?",
     answer:
-      "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
+      "El mix cambia según temporada. Siempre son firmas que conviven con el criterio de la casa: calidad, corte y un estilo que no necesita gritar. Pregunta en tienda por la selección actual.",
+  },
+  {
+    question: "¿Puedo comprar solo la marca propia?",
+    answer:
+      "Sí. La línea PEREZ EST. 2020 está disponible en boutique. También puedes mezclarla con piezas de las otras marcas del local.",
+  },
+  {
+    question: "¿Hacen envíos o solo venden en tienda?",
+    answer:
+      "Puedes visitarnos en la boutique o escribirnos para disponibilidad, reservas y envíos. El botón de contacto está siempre visible.",
+  },
+  {
+    question: "¿Cómo compro desde la web?",
+    answer:
+      "En Catálogo agregas prendas al carrito y pulsas Comprar por WhatsApp. Se abre un mensaje con tu pedido listo para enviar.",
   },
 ];

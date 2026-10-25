@@ -2,52 +2,65 @@ import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
-import { Video } from "@/components/Video";
+import { Lookbook } from "@/components/Lookbook";
 import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 
 import { benefitOne, benefitTwo } from "@/components/data";
+
 export default function Home() {
   return (
     <Container>
       <Hero />
       <SectionTitle
-        preTitle="Nextly Benefits"
-        title=" Why should you use this landing page"
+        id="boutique"
+        preTitle="La boutique"
+        title="Un lugar para encontrar tu estilo"
       >
-        Nextly is a free landing page & marketing website template for startups
-        and indie projects. Its built with Next.js & TailwindCSS. And its
-        completely open-source.
+        PEREZ nació como boutique. Aquí no vienes a perderte entre mil opciones:
+        vienes a encontrar ropa con criterio, de la marca propia y de otras
+        firmas que elegimos a mano.
       </SectionTitle>
 
       <Benefits data={benefitOne} />
+
+      <SectionTitle
+        id="marca-propia"
+        preTitle="Marca propia"
+        title="PEREZ, la línea original"
+      >
+        Nuestra propia marca convive en el mismo espacio con el resto de la
+        selección. Si buscas la firma de la casa, está aquí: denim, básicos y
+        piezas de autor.
+      </SectionTitle>
+
       <Benefits imgPos="right" data={benefitTwo} />
 
       <SectionTitle
-        preTitle="Watch a video"
-        title="Learn how to fullfil your needs"
+        id="marcas"
+        preTitle="Lookbook"
+        title="La boutique, de cerca"
       >
-        This section is to highlight a promo or demo video of your product.
-        Analysts says a landing page with video has 3% more conversion rate. So,
-        don&apos;t forget to add one. Just like this.
+        Etiquetas, prendas y el detalle de cada pieza. Así se vive PEREZ:
+        una casa con marca propia y un mix de marcas invitadas.
       </SectionTitle>
 
-      <Video videoId="fZ0D0cnR88E" />
+      <Lookbook />
 
       <SectionTitle
-        preTitle="Testimonials"
-        title="Here's what our customers said"
+        preTitle="Clientes"
+        title="Lo que se vive en tienda"
       >
-        Testimonials is a great way to increase the brand trust and awareness.
-        Use this section to highlight your popular customers.
+        Quienes pasan por PEREZ no buscan una moda de temporada. Buscan
+        alguien que los ayude a vestir mejor, con calma.
       </SectionTitle>
 
       <Testimonials />
 
-      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
+      <SectionTitle preTitle="FAQ" title="Preguntas frecuentes">
+        Horarios, marcas y cómo funciona la boutique. Si no está tu duda,
+        escríbenos desde el botón de contacto.
       </SectionTitle>
 
       <Faq />
