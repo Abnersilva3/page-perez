@@ -8,13 +8,19 @@ export const Hero = () => {
     <Container className="flex flex-col items-center gap-10 lg:flex-row lg:flex-nowrap">
       <div className="w-full min-w-0 lg:w-[42%]">
         <h1 className="sr-only">PEREZ</h1>
-        <PerezLogo height={56} className="lg:hidden" />
         <span className="hidden lg:inline-flex">
           <PerezLogo height={72} />
         </span>
-        <p className="max-w-md mt-5 text-base leading-relaxed text-perez-champagne sm:mt-6 sm:text-lg">
-          Boutique con marca propia. La línea PEREZ y otras firmas
-          seleccionadas, con un solo criterio: menos ruido, mejor ropa.
+        <div className="lg:hidden">
+          <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-perez-terracota">
+            Boutique
+          </p>
+          <p className="mt-2 text-2xl font-semibold leading-snug tracking-tight text-perez-negro dark:text-perez-marfil">
+            Menos ruido, mejor ropa.
+          </p>
+        </div>
+        <p className="max-w-md mt-4 text-base leading-relaxed text-perez-oliva sm:text-lg lg:mt-6 dark:text-perez-champagne">
+          La línea PEREZ y otras firmas seleccionadas, con un solo criterio.
         </p>
         <Link
           href="/catalogo"

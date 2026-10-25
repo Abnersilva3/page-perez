@@ -40,7 +40,7 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
                         placeholder="blur"
                       />
                       {data.captions?.[index] ? (
-                        <figcaption className="mt-2 text-xs tracking-[0.16em] uppercase text-perez-champagne/80">
+                        <figcaption className="mt-2 text-xs tracking-[0.16em] uppercase text-perez-oliva/80 dark:text-perez-champagne/80">
                           {data.captions[index]}
                         </figcaption>
                       ) : null}
@@ -68,11 +68,11 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
           }`}>
           <div>
             <div className="flex flex-col w-full mt-4">
-              <h3 className="max-w-2xl mt-3 text-2xl font-semibold leading-snug tracking-tight text-perez-marfil sm:text-3xl lg:text-4xl">
+              <h3 className="max-w-2xl mt-3 text-2xl font-semibold leading-snug tracking-tight text-perez-negro sm:text-3xl lg:text-4xl dark:text-perez-marfil">
                 {data.title}
               </h3>
 
-              <p className="max-w-2xl py-3 text-base leading-normal text-perez-champagne sm:py-4 sm:text-lg lg:text-xl">
+              <p className="max-w-2xl py-3 text-base leading-normal text-perez-oliva sm:py-4 sm:text-lg lg:text-xl dark:text-perez-champagne">
                 {data.desc}
               </p>
             </div>
@@ -99,10 +99,10 @@ function Benefit(props: any) {
           })}
         </div>
         <div>
-          <h4 className="text-lg font-medium text-perez-marfil sm:text-xl">
+          <h4 className="text-lg font-medium text-perez-negro sm:text-xl dark:text-perez-marfil">
             {props.title}
           </h4>
-          <p className="mt-1 text-sm leading-relaxed text-perez-champagne/80 sm:text-base">
+          <p className="mt-1 text-sm leading-relaxed text-perez-oliva sm:text-base dark:text-perez-champagne/80">
             {props.children}
           </p>
         </div>

@@ -13,7 +13,7 @@ export const Faq = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-3 text-left text-perez-marfil rounded-lg bg-perez-noche hover:bg-white/5 focus:outline-none sm:py-4 sm:text-lg">
+                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-3 text-left text-perez-negro rounded-lg bg-white/70 hover:bg-perez-champagne/30 focus:outline-none sm:py-4 sm:text-lg dark:bg-perez-noche dark:text-perez-marfil dark:hover:bg-white/5">
                     <span>{item.question}</span>
                     <ChevronUpIcon
                       className={`${

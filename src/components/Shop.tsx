@@ -222,10 +222,10 @@ function ProductModal({
 
 function ShopSkeleton() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {[0, 1, 2].map((item) => (
-        <div key={item} className="overflow-hidden rounded-2xl bg-perez-noche">
-          <div className="aspect-[4/5] animate-pulse bg-white/5" />
+    <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+      {[0, 1, 2, 3].map((item) => (
+        <div key={item} className="overflow-hidden rounded-xl bg-perez-noche sm:rounded-2xl">
+          <div className="aspect-[3/4] animate-pulse bg-white/5 sm:aspect-[4/5]" />
           <div className="space-y-2 p-4">
             <div className="h-3 w-24 animate-pulse rounded bg-white/10" />
             <div className="h-5 w-40 animate-pulse rounded bg-white/10" />
@@ -311,7 +311,7 @@ export function Shop() {
 
   if (!products.length) {
     return (
-      <p className="text-center text-perez-champagne">
+      <p className="text-center text-perez-oliva dark:text-perez-champagne">
         Aún no hay prendas en el catálogo.
       </p>
     );
@@ -327,7 +327,7 @@ export function Shop() {
             className={`min-h-11 rounded-full px-4 py-2.5 text-[10px] tracking-[0.2em] uppercase border transition-colors ${
               selected.length === 0
                 ? "bg-perez-terracota text-white border-perez-terracota"
-                : "text-perez-marfil border-white/20 hover:border-perez-terracota"
+                : "text-perez-negro border-perez-oliva/25 hover:border-perez-terracota dark:text-perez-marfil dark:border-white/20"
             }`}
           >
             Todas
@@ -342,7 +342,7 @@ export function Shop() {
                 className={`min-h-11 rounded-full px-4 py-2.5 text-[10px] tracking-[0.2em] uppercase border transition-colors ${
                   active
                     ? "bg-perez-terracota text-white border-perez-terracota"
-                    : "text-perez-marfil border-white/20 hover:border-perez-terracota"
+                    : "text-perez-negro border-perez-oliva/25 hover:border-perez-terracota dark:text-perez-marfil dark:border-white/20"
                 }`}
               >
                 {category}
@@ -353,7 +353,7 @@ export function Shop() {
       ) : null}
 
       {visible.length ? (
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
           {visible.map((product) => {
             const soldOut = product.stock < 1;
             const tags = product.categorias ?? [];
@@ -363,24 +363,26 @@ export function Shop() {
                 <button
                   type="button"
                   onClick={() => setOpen(product)}
-                  className="group block w-full overflow-hidden rounded-2xl bg-perez-noche text-left"
+                  className="group block w-full overflow-hidden rounded-xl bg-perez-noche text-left sm:rounded-2xl"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden bg-black">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-black sm:aspect-[4/5]">
                     <img
                       src={cover}
                       alt={product.nombre}
                       referrerPolicy="no-referrer"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent p-4 pt-16">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent p-2.5 pt-10 sm:p-4 sm:pt-16">
                       {tags.length ? (
-                        <p className="text-[10px] tracking-[0.2em] uppercase text-perez-terracota">
+                        <p className="truncate text-[9px] tracking-[0.16em] uppercase text-perez-terracota sm:text-[10px] sm:tracking-[0.2em]">
                           {tags.join(" · ")}
                         </p>
                       ) : null}
-                      <div className="mt-1 flex items-end justify-between gap-3">
-                        <h3 className="text-lg text-white">{product.nombre}</h3>
-                        <p className="shrink-0 text-sm text-white">
+                      <div className="mt-0.5 flex items-end justify-between gap-1.5 sm:mt-1 sm:gap-3">
+                        <h3 className="text-sm leading-tight text-white sm:text-lg">
+                          {product.nombre}
+                        </h3>
+                        <p className="shrink-0 text-xs text-white sm:text-sm">
                           {soldOut ? "Agotado" : formatPrice(product.precio)}
                         </p>
                       </div>
@@ -392,7 +394,7 @@ export function Shop() {
           })}
         </div>
       ) : (
-        <p className="text-center text-perez-champagne">
+        <p className="text-center text-perez-oliva dark:text-perez-champagne">
           No hay prendas en esas categorías.
         </p>
       )}
