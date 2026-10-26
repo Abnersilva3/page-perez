@@ -10,6 +10,12 @@ import { WHATSAPP_NUMBER } from "@/config/tienda";
 const visitUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const Navbar = () => {
+  const desktopNav = [
+    { label: "Hombres", href: "/catalogo?cat=Hombres" },
+    { label: "Mujeres", href: "/catalogo?cat=Mujeres" },
+    { label: "Kids", href: "/catalogo?cat=Kids" },
+    { label: "Accesorios", href: "/catalogo?cat=Accesorios" },
+  ];
   const navigation = [
     { label: "Inicio", href: "/" },
     { label: "Catálogo", href: "/catalogo" },
@@ -23,43 +29,54 @@ export const Navbar = () => {
       {({ open, close }) => (
         <>
           <BodyLock active={open} />
-          <div className="sticky top-0 z-50 w-full border-b border-perez-negro/10 bg-perez-marfil/90 backdrop-blur dark:border-white/10 dark:bg-perez-negro/90">
-          <nav className="container relative flex items-center justify-between px-5 py-3 mx-auto sm:px-8">
-            <Link href="/" aria-label="PEREZ inicio" className="shrink-0">
-              <PerezLogo markOnly height={28} />
+          <div className="sticky top-0 z-50 w-full border-b border-perez-negro/[0.08] bg-perez-arena/95 backdrop-blur dark:border-white/10 dark:bg-perez-negro/95">
+          <p className="hidden bg-perez-negro px-5 py-1.5 text-center text-[9px] uppercase tracking-[0.22em] text-perez-marfil dark:bg-perez-marfil dark:text-perez-negro sm:block">
+            Envíos y reservas por WhatsApp · Boutique EST. 2020
+          </p>
+          <nav className="relative flex w-full items-center py-3">
+            <Link
+              href="/"
+              aria-label="PEREZ inicio"
+              className="relative z-10 shrink-0 translate-y-[3px] pl-7 sm:pl-8"
+            >
+              <PerezLogo markOnly height={32} alt="" className="sm:hidden" />
+              <PerezLogo markOnly height={40} alt="" className="hidden sm:inline-flex" />
+            </Link>
+            <ul className="hidden min-w-0 items-center list-none lg:ml-12 lg:flex">
+              {desktopNav.map((menu) => (
+                <li key={menu.label}>
+                  <Link
+                    href={menu.href}
+                    className="inline-block px-2.5 py-1 text-[10px] uppercase tracking-[0.22em] text-perez-negro no-underline transition-colors hover:text-perez-oliva dark:text-perez-marfil xl:px-3"
+                  >
+                    {menu.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="/"
+              aria-label="PEREZ inicio"
+              className="absolute left-1/2 -translate-x-1/2 font-sans text-[18px] font-medium uppercase tracking-[0.5em] text-perez-negro no-underline dark:text-perez-marfil sm:text-[22px]"
+            >
+              PEREZ
             </Link>
 
-            <div className="hidden text-center lg:flex lg:items-center">
-              <ul className="flex items-center justify-end flex-1 list-none">
-                {navigation
-                  .filter((item) => !item.external)
-                  .map((menu) => (
-                    <li key={menu.href}>
-                      <Link
-                        href={menu.href}
-                        className="inline-block px-4 py-1 text-sm text-perez-negro no-underline rounded-md hover:text-perez-terracota dark:text-perez-marfil"
-                      >
-                        {menu.label}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </div>
-
-            <div className="flex items-center gap-1 sm:gap-2">
+            <div className="ml-auto flex items-center justify-end gap-0 pr-5 sm:gap-2 sm:pr-8">
               <ThemeChanger />
               <CartButton />
               <a
                 href={visitUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden px-4 py-1.5 text-sm text-white bg-perez-terracota rounded-md lg:inline-flex hover:bg-perez-oliva transition-colors"
+                className="hidden px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-perez-negro no-underline transition-colors lg:inline-flex hover:text-perez-oliva dark:text-perez-marfil"
               >
                 Escríbenos
               </a>
               <Disclosure.Button
                 aria-label="Abrir menú"
-                className={`h-11 w-11 items-center justify-center text-perez-negro rounded-md hover:text-perez-terracota focus:outline-none dark:text-perez-marfil ${
+                className={`h-11 w-11 items-center justify-center rounded-md text-perez-negro hover:text-perez-oliva focus:outline-none dark:text-perez-marfil ${
                   open ? "hidden" : "flex lg:hidden"
                 }`}
               >
@@ -110,7 +127,17 @@ export const Navbar = () => {
                 className="flex h-full flex-col bg-perez-marfil shadow-2xl dark:bg-[#1c1c1c]"
               >
                 <div className="flex items-center justify-between border-b border-perez-negro/10 px-5 py-4 dark:border-white/10">
-                  <PerezLogo markOnly height={28} />
+                  <Link
+                    href="/"
+                    onClick={() => close()}
+                    aria-label="PEREZ inicio"
+                    className="inline-flex items-center gap-2.5 no-underline"
+                  >
+                    <PerezLogo markOnly height={24} alt="" />
+                    <span className="font-sans text-[15px] font-medium uppercase tracking-[0.4em] text-perez-negro dark:text-perez-marfil">
+                      PEREZ
+                    </span>
+                  </Link>
                   <button
                     type="button"
                     aria-label="Cerrar menú"
@@ -139,7 +166,7 @@ export const Navbar = () => {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex min-h-12 items-center rounded-xl px-4 text-perez-negro hover:bg-perez-champagne/30 hover:text-perez-terracota dark:text-perez-marfil dark:hover:bg-white/5"
+                        className="flex min-h-12 items-center px-4 text-[13px] uppercase tracking-[0.16em] text-perez-negro hover:bg-perez-champagne/25 hover:text-perez-oliva dark:text-perez-marfil dark:hover:bg-white/5"
                       >
                         {item.label}
                       </Disclosure.Button>
@@ -148,7 +175,7 @@ export const Navbar = () => {
                         key={item.href}
                         as={Link}
                         href={item.href}
-                        className="flex min-h-12 items-center rounded-xl px-4 text-perez-negro hover:bg-perez-champagne/30 hover:text-perez-terracota dark:text-perez-marfil dark:hover:bg-white/5"
+                        className="flex min-h-12 items-center px-4 text-[13px] uppercase tracking-[0.16em] text-perez-negro hover:bg-perez-champagne/25 hover:text-perez-oliva dark:text-perez-marfil dark:hover:bg-white/5"
                       >
                         {item.label}
                       </Disclosure.Button>

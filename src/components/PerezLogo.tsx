@@ -4,12 +4,14 @@ interface PerezLogoProps {
   className?: string;
   height?: number;
   markOnly?: boolean;
+  alt?: string;
 }
 
 export function PerezLogo({
   className = "",
   height = 56,
   markOnly = false,
+  alt = "PEREZ",
 }: PerezLogoProps) {
   const ratio = markOnly ? 293 / 193 : 630 / 344;
   const width = Math.round(height * ratio);
@@ -21,21 +23,23 @@ export function PerezLogo({
     : "/img/logo-perez-light.png";
 
   return (
-    <span className={`relative inline-flex items-center ${className}`}>
+    <span className={`relative inline-flex shrink-0 items-center ${className}`}>
       <Image
         src={darkSrc}
-        alt="PEREZ"
+        alt={alt}
         width={width}
         height={height}
-        className="h-auto w-auto dark:hidden"
+        className="w-auto dark:hidden"
+        style={{ height }}
         priority
       />
       <Image
         src={lightSrc}
-        alt="PEREZ"
+        alt={alt}
         width={width}
         height={height}
-        className="hidden h-auto w-auto dark:block"
+        className="hidden w-auto dark:block"
+        style={{ height }}
         priority
       />
     </span>

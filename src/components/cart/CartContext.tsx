@@ -37,29 +37,34 @@ function sameLine(line: CartLine, id: string, talla: string) {
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartLine[]>([]);
   const [open, setOpen] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-      const parsed = JSON.parse(raw) as Array<Partial<CartLine>>;
-      setItems(
-        parsed
-          .filter((line) => line?.product && line.qty)
-          .map((line) => ({
-            product: line.product as Product,
-            talla: typeof line.talla === "string" ? line.talla : "",
-            qty: Number(line.qty) || 1,
-          }))
-      );
+      if (raw) {
+        const parsed = JSON.parse(raw) as Array<Partial<CartLine>>;
+        setItems(
+          parsed
+            .filter((line) => line?.product && line.qty)
+            .map((line) => ({
+              product: line.product as Product,
+              talla: typeof line.talla === "string" ? line.talla : "",
+              qty: Number(line.qty) || 1,
+            }))
+        );
+      }
     } catch {
       setItems([]);
+    } finally {
+      setReady(true);
     }
   }, []);
 
   useEffect(() => {
+    if (!ready) return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  }, [items]);
+  }, [items, ready]);
 
   const add = (product: Product, talla: string) => {
     const size = talla.trim();

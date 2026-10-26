@@ -30,53 +30,60 @@ export function CartDrawer() {
         className="absolute inset-0 bg-black/50"
         onClick={() => setOpen(false)}
       />
-      <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-perez-marfil text-perez-negro shadow-2xl dark:bg-perez-negro dark:text-perez-marfil">
-        <div className="flex items-center justify-between border-b border-perez-champagne/30 px-5 py-4">
-          <h2 className="text-lg uppercase">Carrito</h2>
-          <button onClick={() => setOpen(false)} className="text-sm text-perez-oliva dark:text-perez-champagne">
+      <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-perez-arena text-perez-negro shadow-2xl dark:bg-perez-negro dark:text-perez-marfil">
+        <div className="flex items-center justify-between border-b border-perez-negro/10 px-5 py-5 dark:border-white/10">
+          <h2 className="text-[11px] uppercase tracking-[0.28em]">Carrito</h2>
+          <button
+            onClick={() => setOpen(false)}
+            className="text-[11px] uppercase tracking-[0.16em] text-perez-oliva hover:text-perez-negro dark:text-perez-champagne"
+          >
             Cerrar
           </button>
         </div>
 
-        <div className="flex-1 overflow-auto px-5 py-4">
+        <div className="flex-1 overflow-auto px-5 py-5">
           {items.length === 0 ? (
-            <p className="text-perez-oliva dark:text-perez-champagne">Aún no hay prendas.</p>
+            <p className="text-sm text-perez-oliva dark:text-perez-champagne">
+              Aún no hay prendas.
+            </p>
           ) : (
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {items.map((line) => (
                 <li key={`${line.product.id}-${line.talla}`} className="flex gap-3">
                   <img
                     src={line.product.foto || line.product.fotos?.[0]}
                     alt={line.product.nombre}
                     referrerPolicy="no-referrer"
-                    className="h-20 w-16 rounded-md object-cover"
+                    className="h-24 w-[72px] object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium">{line.product.nombre}</p>
+                    <p className="text-[11px] uppercase tracking-[0.16em]">
+                      {line.product.nombre}
+                    </p>
                     {line.talla ? (
-                      <p className="text-xs uppercase text-perez-terracota">
+                      <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-perez-oliva">
                         Talla {line.talla}
                       </p>
                     ) : null}
-                    <p className="text-sm text-perez-oliva dark:text-perez-champagne">
+                    <p className="mt-1 text-sm text-perez-oliva dark:text-perez-champagne">
                       {formatPrice(line.product.precio)}
                     </p>
-                    <div className="mt-2 flex items-center gap-2">
+                    <div className="mt-3 flex items-center gap-2">
                       <button
-                        className="h-7 w-7 rounded border border-perez-champagne/50"
+                        className="flex h-7 w-7 items-center justify-center border border-perez-negro/20"
                         onClick={() => update(line.product.id, line.talla, line.qty - 1)}
                       >
                         −
                       </button>
                       <span className="w-6 text-center text-sm">{line.qty}</span>
                       <button
-                        className="h-7 w-7 rounded border border-perez-champagne/50"
+                        className="flex h-7 w-7 items-center justify-center border border-perez-negro/20"
                         onClick={() => update(line.product.id, line.talla, line.qty + 1)}
                       >
                         +
                       </button>
                       <button
-                        className="ml-auto text-xs text-perez-terracota"
+                        className="ml-auto text-[10px] uppercase tracking-[0.16em] text-perez-oliva hover:text-perez-negro"
                         onClick={() => remove(line.product.id, line.talla)}
                       >
                         Quitar
@@ -89,10 +96,10 @@ export function CartDrawer() {
           )}
         </div>
 
-        <div className="border-t border-perez-champagne/30 px-5 py-4">
-          <div className="mb-3 flex justify-between text-sm">
+        <div className="border-t border-perez-negro/10 px-5 py-5 dark:border-white/10">
+          <div className="mb-4 flex justify-between text-[11px] uppercase tracking-[0.16em]">
             <span>Total</span>
-            <span className="font-medium">{formatPrice(total)}</span>
+            <span>{formatPrice(total)}</span>
           </div>
           <a
             href={
@@ -110,10 +117,10 @@ export function CartDrawer() {
             }
             target="_blank"
             rel="noopener noreferrer"
-            className={`block w-full rounded-md px-4 py-3 text-center text-sm tracking-wide text-white ${
+            className={`flex h-11 w-full items-center justify-center text-[10px] uppercase tracking-[0.2em] ${
               items.length
-                ? "bg-perez-terracota hover:bg-perez-oliva"
-                : "pointer-events-none bg-perez-oliva/40"
+                ? "bg-perez-negro text-white hover:bg-perez-oliva dark:bg-perez-marfil dark:text-perez-negro"
+                : "pointer-events-none bg-perez-oliva/30 text-white"
             }`}
           >
             Comprar por WhatsApp

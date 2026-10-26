@@ -9,7 +9,7 @@ export function CartButton() {
     <button
       type="button"
       onClick={() => setOpen(true)}
-      className="relative rounded-md px-2 py-1 text-perez-noche dark:text-perez-marfil"
+      className="relative rounded-md px-2 py-1 text-perez-negro transition-colors hover:text-perez-oliva dark:text-perez-marfil"
       aria-label="Abrir carrito"
     >
       <svg
@@ -26,7 +26,7 @@ export function CartButton() {
         <circle cx="18" cy="20" r="1" />
       </svg>
       {count > 0 ? (
-        <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-perez-terracota px-1 text-[10px] text-white">
+        <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-perez-negro px-1 text-[10px] text-white dark:bg-perez-marfil dark:text-perez-negro">
           {count}
         </span>
       ) : null}

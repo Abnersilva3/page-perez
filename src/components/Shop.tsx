@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { SHEET_REFRESH_SECONDS } from "@/config/tienda";
 import type { Product } from "@/lib/product-types";
 import { formatPrice } from "@/lib/money";
@@ -17,6 +18,14 @@ function stockLabel(stock: number) {
   return "En stock";
 }
 
+function filterClass(active: boolean) {
+  return `border-b pb-1 text-[10px] uppercase tracking-[0.22em] transition-colors ${
+    active
+      ? "border-perez-negro text-perez-negro dark:border-perez-marfil dark:text-perez-marfil"
+      : "border-transparent text-perez-oliva hover:text-perez-negro dark:text-perez-champagne dark:hover:text-perez-marfil"
+  }`;
+}
+
 function SizePicker({
   tallas,
   value,
@@ -30,7 +39,7 @@ function SizePicker({
 
   return (
     <div>
-      <p className="mb-2 text-[10px] tracking-[0.2em] uppercase text-perez-champagne">
+      <p className="mb-2 text-[10px] uppercase tracking-[0.22em] text-perez-oliva">
         Talla
       </p>
       <div className="flex flex-wrap gap-2">
@@ -41,10 +50,10 @@ function SizePicker({
               key={talla}
               type="button"
               onClick={() => onChange(talla)}
-              className={`min-w-10 rounded-md border px-3 py-1.5 text-sm uppercase ${
+              className={`min-w-10 border px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] ${
                 active
-                  ? "border-perez-terracota bg-perez-terracota text-white"
-                  : "border-white/20 text-perez-marfil hover:border-perez-terracota"
+                  ? "border-perez-negro bg-perez-negro text-white dark:border-perez-marfil dark:bg-perez-marfil dark:text-perez-negro"
+                  : "border-perez-negro/20 text-perez-negro hover:border-perez-negro dark:border-white/25 dark:text-perez-marfil"
               }`}
             >
               {talla}
@@ -97,11 +106,11 @@ function ProductModal({
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6">
       <button
         aria-label="Cerrar"
-        className="absolute inset-0 bg-black/75"
+        className="absolute inset-0 bg-black/50"
         onClick={onClose}
       />
-      <div className="relative z-10 flex max-h-[94vh] w-full max-w-4xl flex-col overflow-hidden rounded-t-2xl bg-perez-noche text-perez-marfil sm:rounded-2xl lg:grid lg:max-h-[88vh] lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="relative flex h-[34vh] shrink-0 items-center justify-center bg-black sm:h-[42vh] lg:h-auto lg:min-h-[520px]">
+      <div className="relative z-10 flex max-h-[94vh] w-full max-w-4xl flex-col overflow-hidden bg-perez-arena text-perez-negro dark:bg-perez-negro dark:text-perez-marfil sm:max-h-[88vh] lg:grid lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative flex h-[38vh] shrink-0 items-center justify-center bg-black/[0.04] dark:bg-black sm:h-[44vh] lg:h-auto lg:min-h-[520px]">
           <img
             src={photos[index]}
             alt={product.nombre}
@@ -114,7 +123,7 @@ function ProductModal({
                 type="button"
                 aria-label="Foto anterior"
                 onClick={prev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/15 px-3 py-2 text-2xl leading-none text-white hover:bg-white/30"
+                className="absolute left-3 top-1/2 -translate-y-1/2 px-3 py-2 text-xl leading-none text-perez-negro hover:text-perez-oliva dark:text-perez-marfil"
               >
                 ‹
               </button>
@@ -122,7 +131,7 @@ function ProductModal({
                 type="button"
                 aria-label="Foto siguiente"
                 onClick={next}
-                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/15 px-3 py-2 text-2xl leading-none text-white hover:bg-white/30"
+                className="absolute right-3 top-1/2 -translate-y-1/2 px-3 py-2 text-xl leading-none text-perez-negro hover:text-perez-oliva dark:text-perez-marfil"
               >
                 ›
               </button>
@@ -133,9 +142,9 @@ function ProductModal({
                     type="button"
                     aria-label={`Ver foto ${photoIndex + 1}`}
                     onClick={() => setIndex(photoIndex)}
-                    className={`h-10 w-8 overflow-hidden rounded border ${
+                    className={`h-10 w-8 overflow-hidden border ${
                       photoIndex === index
-                        ? "border-white"
+                        ? "border-perez-negro dark:border-white"
                         : "border-transparent opacity-60 hover:opacity-100"
                     }`}
                   >
@@ -153,13 +162,13 @@ function ProductModal({
         </div>
 
         <div className="flex min-h-0 flex-1 flex-col">
-          <div className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-7">
+          <div className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-8">
             <div className="flex items-start justify-between gap-4">
-              <div className="flex flex-wrap gap-x-2 gap-y-1">
+              <div className="flex flex-wrap gap-x-3 gap-y-1">
                 {(product.categorias ?? []).map((category) => (
                   <p
                     key={category}
-                    className="text-[10px] tracking-[0.2em] uppercase text-perez-terracota"
+                    className="text-[10px] uppercase tracking-[0.22em] text-perez-oliva dark:text-perez-champagne"
                   >
                     {category}
                   </p>
@@ -168,16 +177,20 @@ function ProductModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="shrink-0 text-sm text-perez-champagne"
+                className="shrink-0 text-[11px] uppercase tracking-[0.18em] text-perez-oliva hover:text-perez-negro dark:text-perez-champagne"
               >
                 Cerrar
               </button>
             </div>
-            <h2 className="mt-3 text-2xl sm:text-3xl">{product.nombre}</h2>
+            <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-3xl">
+              {product.nombre}
+            </h2>
             {product.descripcion ? (
-              <p className="mt-3 text-perez-champagne">{product.descripcion}</p>
+              <p className="mt-3 text-sm leading-relaxed text-perez-oliva dark:text-perez-champagne">
+                {product.descripcion}
+              </p>
             ) : null}
-            <div className="mt-5">
+            <div className="mt-6">
               <SizePicker
                 tallas={tallas}
                 value={talla}
@@ -189,15 +202,15 @@ function ProductModal({
             </div>
           </div>
 
-          <div className="shrink-0 border-t border-white/10 p-5 sm:p-7">
+          <div className="shrink-0 border-t border-perez-negro/10 p-5 dark:border-white/10 sm:p-8">
             <div className="flex items-end justify-between gap-4">
               <p className="text-2xl font-medium">{formatPrice(product.precio)}</p>
-              <p className="text-sm text-perez-champagne">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-perez-oliva dark:text-perez-champagne">
                 {stockLabel(product.stock)}
               </p>
             </div>
             {needSize ? (
-              <p className="mt-2 text-sm text-perez-terracota">Elige una talla</p>
+              <p className="mt-2 text-sm text-perez-oliva">Elige una talla</p>
             ) : null}
             <button
               disabled={soldOut}
@@ -209,7 +222,7 @@ function ProductModal({
                 add(product, talla);
                 onClose();
               }}
-              className="mt-4 w-full rounded-md bg-perez-terracota px-4 py-3 text-sm text-white disabled:cursor-not-allowed disabled:bg-perez-oliva/40"
+              className="mt-5 inline-flex h-11 w-full items-center justify-center bg-perez-negro px-5 text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-perez-oliva disabled:cursor-not-allowed disabled:bg-perez-oliva/40 dark:bg-perez-marfil dark:text-perez-negro"
             >
               {soldOut ? "Agotado" : "Agregar al carrito"}
             </button>
@@ -222,26 +235,31 @@ function ProductModal({
 
 function ShopSkeleton() {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+    <div className="grid grid-cols-2 gap-5 sm:gap-7 lg:grid-cols-3">
       {[0, 1, 2, 3].map((item) => (
-        <div key={item} className="overflow-hidden rounded-xl bg-perez-noche sm:rounded-2xl">
-          <div className="aspect-[3/4] animate-pulse bg-white/5 sm:aspect-[4/5]" />
-          <div className="space-y-2 p-4">
-            <div className="h-3 w-24 animate-pulse rounded bg-white/10" />
-            <div className="h-5 w-40 animate-pulse rounded bg-white/10" />
-          </div>
+        <div key={item}>
+          <div className="aspect-[3/4] animate-pulse bg-black/[0.04] dark:bg-white/5" />
+          <div className="mt-3 h-3 w-24 animate-pulse bg-black/[0.06] dark:bg-white/10" />
+          <div className="mt-2 h-3 w-16 animate-pulse bg-black/[0.06] dark:bg-white/10" />
         </div>
       ))}
     </div>
   );
 }
 
-export function Shop() {
+export function Shop({ initialCategory }: { initialCategory?: string }) {
+  const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(
+    initialCategory ? [initialCategory] : []
+  );
   const [open, setOpen] = useState<Product | null>(null);
+
+  useEffect(() => {
+    setSelected(initialCategory ? [initialCategory] : []);
+  }, [initialCategory]);
 
   useEffect(() => {
     let cancelled = false;
@@ -283,8 +301,11 @@ export function Shop() {
         seen.add(category);
       }
     }
+    for (const category of selected) {
+      if (category) seen.add(category);
+    }
     return Array.from(seen).sort((a, b) => a.localeCompare(b, "es"));
-  }, [products]);
+  }, [products, selected]);
 
   const visible = useMemo(() => {
     if (!selected.length) return products;
@@ -293,12 +314,12 @@ export function Shop() {
     );
   }, [products, selected]);
 
-  const toggle = (category: string) => {
-    setSelected((current) =>
-      current.includes(category)
-        ? current.filter((item) => item !== category)
-        : [...current, category]
-    );
+  const applyCategory = (category: string | null) => {
+    setSelected(category ? [category] : []);
+    const url = category
+      ? `/catalogo?cat=${encodeURIComponent(category)}`
+      : "/catalogo";
+    router.replace(url, { scroll: false });
   };
 
   if (loading) {
@@ -306,12 +327,12 @@ export function Shop() {
   }
 
   if (error) {
-    return <p className="text-center text-perez-terracota">{error}</p>;
+    return <p className="text-perez-oliva">{error}</p>;
   }
 
   if (!products.length) {
     return (
-      <p className="text-center text-perez-oliva dark:text-perez-champagne">
+      <p className="text-sm text-perez-oliva dark:text-perez-champagne">
         Aún no hay prendas en el catálogo.
       </p>
     );
@@ -320,82 +341,67 @@ export function Shop() {
   return (
     <div>
       {categories.length > 1 ? (
-        <div className="mb-8 flex flex-wrap justify-center gap-2">
+        <div className="mb-7 flex flex-wrap gap-x-6 gap-y-3">
           <button
             type="button"
-            onClick={() => setSelected([])}
-            className={`min-h-11 rounded-full px-4 py-2.5 text-[10px] tracking-[0.2em] uppercase border transition-colors ${
-              selected.length === 0
-                ? "bg-perez-terracota text-white border-perez-terracota"
-                : "text-perez-negro border-perez-oliva/25 hover:border-perez-terracota dark:text-perez-marfil dark:border-white/20"
-            }`}
+            onClick={() => applyCategory(null)}
+            className={filterClass(selected.length === 0)}
           >
             Todas
           </button>
-          {categories.map((category) => {
-            const active = selected.includes(category);
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => toggle(category)}
-                className={`min-h-11 rounded-full px-4 py-2.5 text-[10px] tracking-[0.2em] uppercase border transition-colors ${
-                  active
-                    ? "bg-perez-terracota text-white border-perez-terracota"
-                    : "text-perez-negro border-perez-oliva/25 hover:border-perez-terracota dark:text-perez-marfil dark:border-white/20"
-                }`}
-              >
-                {category}
-              </button>
-            );
-          })}
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() =>
+                applyCategory(
+                  selected.length === 1 && selected[0] === category
+                    ? null
+                    : category
+                )
+              }
+              className={filterClass(selected.includes(category))}
+            >
+              {category}
+            </button>
+          ))}
         </div>
       ) : null}
 
       {visible.length ? (
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-5 sm:gap-7 lg:grid-cols-3">
           {visible.map((product) => {
             const soldOut = product.stock < 1;
-            const tags = product.categorias ?? [];
             const cover = productFotos(product)[0];
             return (
               <article key={product.id}>
                 <button
                   type="button"
                   onClick={() => setOpen(product)}
-                  className="group block w-full overflow-hidden rounded-xl bg-perez-noche text-left sm:rounded-2xl"
+                  className="group block w-full text-left"
                 >
-                  <div className="relative aspect-[3/4] overflow-hidden bg-black sm:aspect-[4/5]">
+                  <div className="aspect-[3/4] overflow-hidden bg-black/[0.04] dark:bg-perez-noche">
                     <img
                       src={cover}
                       alt={product.nombre}
                       referrerPolicy="no-referrer"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent p-2.5 pt-10 sm:p-4 sm:pt-16">
-                      {tags.length ? (
-                        <p className="truncate text-[9px] tracking-[0.16em] uppercase text-perez-terracota sm:text-[10px] sm:tracking-[0.2em]">
-                          {tags.join(" · ")}
-                        </p>
-                      ) : null}
-                      <div className="mt-0.5 flex items-end justify-between gap-1.5 sm:mt-1 sm:gap-3">
-                        <h3 className="text-sm leading-tight text-white sm:text-lg">
-                          {product.nombre}
-                        </h3>
-                        <p className="shrink-0 text-xs text-white sm:text-sm">
-                          {soldOut ? "Agotado" : formatPrice(product.precio)}
-                        </p>
-                      </div>
-                    </div>
                   </div>
+                  <p className="mt-3 text-[10px] uppercase tracking-[0.18em] text-perez-negro dark:text-perez-marfil">
+                    {product.nombre}
+                  </p>
+                  <p className="mt-1 text-[13px] text-perez-oliva dark:text-perez-champagne">
+                    {soldOut ? "Agotado" : formatPrice(product.precio)}
+                  </p>
                 </button>
               </article>
             );
           })}
         </div>
       ) : (
-        <p className="text-center text-perez-oliva dark:text-perez-champagne">
-          No hay prendas en esas categorías.
+        <p className="text-sm text-perez-oliva dark:text-perez-champagne">
+          Aún no hay prendas{selected[0] ? ` en ${selected[0]}` : " en esas categorías"}.
         </p>
       )}
 

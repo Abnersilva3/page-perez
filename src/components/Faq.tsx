@@ -1,36 +1,45 @@
 "use client";
 import React from "react";
-import { Container } from "@/components/Container";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/24/solid";
 
 export const Faq = () => {
   return (
-    <Container className="!p-0">
-      <div id="faq" className="w-full max-w-2xl p-2 mx-auto rounded-2xl scroll-mt-24">
-        {faqdata.map((item) => (
-          <div key={item.question} className="mb-5">
-            <Disclosure>
+    <section className="bg-perez-arena py-16 dark:bg-perez-negro sm:py-20">
+      <div className="container mx-auto px-5 sm:px-8">
+        <p className="text-center text-[10px] uppercase tracking-[0.28em] text-perez-oliva">
+          FAQ
+        </p>
+        <h2 className="mt-3 text-center text-2xl font-medium tracking-tight text-perez-negro dark:text-perez-marfil sm:text-3xl">
+          Preguntas frecuentes
+        </h2>
+        <p className="mx-auto mt-3 max-w-md text-center text-sm leading-relaxed text-perez-oliva dark:text-perez-champagne">
+          Horarios, marcas y cómo comprar desde la web.
+        </p>
+
+        <div id="faq" className="mx-auto mt-10 max-w-2xl scroll-mt-24">
+          {faqdata.map((item) => (
+            <Disclosure key={item.question} as="div" className="border-b border-perez-negro/10 dark:border-white/10">
               {({ open }) => (
                 <>
-                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-3 text-left text-perez-negro rounded-lg bg-white/70 hover:bg-perez-champagne/30 focus:outline-none sm:py-4 sm:text-lg dark:bg-perez-noche dark:text-perez-marfil dark:hover:bg-white/5">
+                  <DisclosureButton className="flex w-full items-center justify-between gap-6 py-4 text-left text-[15px] text-perez-negro transition-colors hover:text-perez-oliva focus:outline-none dark:text-perez-marfil sm:py-5">
                     <span>{item.question}</span>
-                    <ChevronUpIcon
-                      className={`${
-                        open ? "transform rotate-180" : ""
-                      } w-5 h-5 text-perez-terracota`}
-                    />
+                    <span
+                      className={`text-perez-oliva transition-transform ${open ? "rotate-45" : ""}`}
+                      aria-hidden
+                    >
+                      +
+                    </span>
                   </DisclosureButton>
-                  <DisclosurePanel className="px-4 pt-4 pb-2 text-perez-oliva dark:text-perez-champagne">
+                  <DisclosurePanel className="pb-5 text-sm leading-relaxed text-perez-oliva dark:text-perez-champagne">
                     {item.answer}
                   </DisclosurePanel>
                 </>
               )}
             </Disclosure>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </Container>
+    </section>
   );
 };
 

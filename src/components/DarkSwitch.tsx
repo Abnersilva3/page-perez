@@ -18,7 +18,7 @@ const ThemeChanger = () => {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-md text-perez-negro hover:text-perez-terracota focus:outline-none dark:text-perez-marfil"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-md text-perez-negro transition-colors hover:text-perez-oliva focus:outline-none dark:text-perez-marfil"
       aria-label={isDark ? "Cambiar a color claro" : "Cambiar a color oscuro"}
     >
       {isDark ? (
