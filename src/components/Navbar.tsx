@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Disclosure, Transition, TransitionChild } from "@headlessui/react";
 import { PerezLogo } from "./PerezLogo";
@@ -10,6 +10,15 @@ import { WHATSAPP_NUMBER } from "@/config/tienda";
 const visitUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const desktopNav = [
     { label: "Hombres", href: "/catalogo?cat=Hombres" },
     { label: "Mujeres", href: "/catalogo?cat=Mujeres" },
@@ -25,14 +34,21 @@ export const Navbar = () => {
   ];
 
   return (
-    <Disclosure as="div" className="relative z-50">
+    <>
+    <p className="hidden bg-perez-negro px-5 py-1.5 text-center text-[9px] uppercase tracking-[0.22em] text-perez-marfil dark:bg-perez-marfil dark:text-perez-negro sm:block">
+      Envíos y reservas por WhatsApp · Boutique EST. 2020
+    </p>
+    <Disclosure as="div" className="sticky top-0 z-50">
       {({ open, close }) => (
         <>
           <BodyLock active={open} />
-          <div className="sticky top-0 z-50 w-full border-b border-perez-negro/[0.08] bg-perez-arena/95 backdrop-blur dark:border-white/10 dark:bg-perez-negro/95">
-          <p className="hidden bg-perez-negro px-5 py-1.5 text-center text-[9px] uppercase tracking-[0.22em] text-perez-marfil dark:bg-perez-marfil dark:text-perez-negro sm:block">
-            Envíos y reservas por WhatsApp · Boutique EST. 2020
-          </p>
+          <div
+            className={`w-full border-b transition-[background-color,backdrop-filter,border-color] duration-300 ${
+              scrolled
+                ? "border-perez-negro/[0.08] bg-perez-arena/55 backdrop-blur-2xl dark:border-white/10 dark:bg-perez-negro/55"
+                : "border-perez-negro/[0.08] bg-perez-arena/95 dark:border-white/10 dark:bg-perez-negro/95"
+            }`}
+          >
           <nav className="relative flex w-full items-center py-3">
             <Link
               href="/"
@@ -188,6 +204,7 @@ export const Navbar = () => {
         </>
       )}
     </Disclosure>
+    </>
   );
 };
 

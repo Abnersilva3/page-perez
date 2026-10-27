@@ -5,7 +5,7 @@
 @layer base {
   html,
   body {
-    @apply min-h-full bg-perez-arena text-perez-negro overflow-x-hidden dark:bg-perez-negro dark:text-perez-marfil;
+    @apply min-h-full overflow-x-clip bg-perez-arena text-perez-negro dark:bg-perez-negro dark:text-perez-marfil;
   }
 
   html {
