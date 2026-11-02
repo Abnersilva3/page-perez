@@ -1,5 +1,5 @@
 // Número de WhatsApp con código de país, sin + ni espacios.
-export const WHATSAPP_NUMBER = "573023655586";
+export const WHATSAPP_NUMBER = "573157526758";
 export const INSTAGRAM_URL = "https://www.instagram.com/perez_shops/";
 
 // ID de la hoja (está en la URL):
