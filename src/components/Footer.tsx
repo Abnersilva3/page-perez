@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { WHATSAPP_NUMBER } from "@/config/tienda";
+import { INSTAGRAM_URL, WHATSAPP_NUMBER } from "@/config/tienda";
 
 const visitUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
 
@@ -39,6 +39,14 @@ export function Footer() {
           <Link href="/#faq" className="transition-colors hover:text-white">
             FAQ
           </Link>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-white"
+          >
+            Instagram
+          </a>
           <a
             href={visitUrl}
             target="_blank"
