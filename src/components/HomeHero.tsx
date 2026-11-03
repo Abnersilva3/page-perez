@@ -10,8 +10,8 @@ export function HomeHero() {
         </p>
         <span className="mt-2 block h-px w-10 bg-perez-negro/70 dark:bg-perez-marfil" />
 
-        <div className="relative mt-0 h-[400px] sm:h-[500px] lg:h-[540px]">
-          <h1 className="pointer-events-none absolute left-1/2 top-[48%] z-0 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center font-sans text-[15vw] font-medium uppercase leading-none tracking-[0.28em] text-perez-negro dark:text-perez-marfil sm:top-[50%] sm:-mr-[0.32em] sm:text-[16vw] sm:tracking-[0.32em] lg:text-[16.5vw]">
+        <div className="relative mt-0 h-[440px] sm:h-[600px] lg:h-[680px]">
+          <h1 className="pointer-events-none absolute left-1/2 top-[48%] z-0 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center font-sans text-[26vw] font-medium uppercase leading-none tracking-[0.08em] pl-[0.08em] text-perez-negro dark:text-perez-marfil sm:top-[50%] sm:tracking-[0.12em] sm:pl-[0.12em] lg:tracking-[0.16em] lg:pl-[0.16em]">
             PEREZ
           </h1>
 
@@ -22,7 +22,7 @@ export function HomeHero() {
               width={1024}
               height={1536}
               priority
-              className="h-[320px] w-auto max-w-none translate-x-[10%] object-contain object-bottom sm:h-[450px] sm:translate-x-0 lg:h-[495px]"
+              className="h-[340px] w-auto max-w-none translate-x-[10%] object-contain object-bottom sm:h-[520px] sm:translate-x-0 lg:h-[600px]"
             />
           </div>
 
