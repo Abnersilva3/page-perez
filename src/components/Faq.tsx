@@ -13,7 +13,7 @@ export const Faq = () => {
           Preguntas frecuentes
         </h2>
         <p className="mx-auto mt-3 max-w-md text-center text-sm leading-relaxed text-perez-oliva dark:text-perez-champagne">
-          Horarios, marcas y cómo comprar desde la web.
+          Marcas, envíos y cómo comprar desde la web.
         </p>
 
         <div id="faq" className="mx-auto mt-10 max-w-2xl scroll-mt-24">
@@ -50,23 +50,23 @@ const faqdata = [
       "Las dos cosas. PEREZ es una boutique y, además, tiene su propia línea. En el local encuentras la marca original y otras marcas que seleccionamos.",
   },
   {
-    question: "¿Qué otras marcas puedo encontrar?",
+    question: "¿Qué otras marcas puedo encontrar en PEREZ?",
     answer:
-      "El mix cambia según temporada. Siempre son firmas que conviven con el criterio de la casa: calidad, corte y un estilo que no necesita gritar. Pregunta en tienda por la selección actual.",
+      "La selección se renueva según la temporada, siempre con el criterio de la casa: calidad, diseño y estilo. Las referencias del momento están en la boutique y en el catálogo online.",
   },
   {
-    question: "¿Puedo comprar solo la marca propia?",
+    question: "¿Puedo comprar únicamente productos de la marca PEREZ?",
     answer:
-      "Sí. La línea PEREZ EST. 2020 está disponible en boutique. También puedes mezclarla con piezas de las otras marcas del local.",
+      "Sí. La línea exclusiva PEREZ EST. 2020 está en boutique. También puedes combinarla con prendas y accesorios de las otras marcas de la casa.",
   },
   {
-    question: "¿Hacen envíos o solo venden en tienda?",
+    question: "¿Realizan envíos o solo venden en tienda?",
     answer:
-      "Puedes visitarnos en la boutique o escribirnos por WhatsApp para disponibilidad, reservas y envíos.",
+      "Puedes comprar en la boutique o escribirnos por WhatsApp para consultar disponibilidad, reservar y coordinar envíos.",
   },
   {
-    question: "¿Cómo compro desde la web?",
+    question: "¿Cómo puedo comprar desde la página web?",
     answer:
-      "En Catálogo agregas prendas al carrito y pulsas Comprar por WhatsApp. Se abre un mensaje con tu pedido listo para enviar.",
+      "Entra al catálogo, elige tus prendas y agrégalas al carrito. Luego pulsa Comprar por WhatsApp: se abre un mensaje con tu pedido listo para enviarnos y te atendemos por ahí.",
   },
 ];
