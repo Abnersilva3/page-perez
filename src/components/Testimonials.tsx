@@ -2,9 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
 
-import userOneImg from "../../public/img/user1.jpg";
-import userTwoImg from "../../public/img/user2.jpg";
-import userThreeImg from "../../public/img/user3.jpg";
+import markImg from "../../public/img/mark-perez-dark.png";
 
 export const Testimonials = () => {
   return (
@@ -19,7 +17,7 @@ export const Testimonials = () => {
             </p>
 
             <Avatar
-              image={userOneImg}
+              image={markImg}
               name="Camila Restrepo"
               title="Cliente frecuente"
             />
@@ -33,7 +31,7 @@ export const Testimonials = () => {
             </p>
 
             <Avatar
-              image={userTwoImg}
+              image={markImg}
               name="Andrés Molina"
               title="Cliente"
             />
@@ -47,7 +45,7 @@ export const Testimonials = () => {
             </p>
 
             <Avatar
-              image={userThreeImg}
+              image={markImg}
               name="Valentina Cruz"
               title="Cliente"
             />

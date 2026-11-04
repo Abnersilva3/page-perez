@@ -36,7 +36,7 @@ export async function HomeBest() {
                   href="/catalogo"
                   className="group block"
                 >
-                  <div className="aspect-[3/4] overflow-hidden bg-black/[0.04] dark:bg-perez-noche">
+                  <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-black/[0.04] dark:bg-perez-noche">
                     <img
                       src={cover}
                       alt={product.nombre}

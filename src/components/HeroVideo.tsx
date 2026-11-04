@@ -63,9 +63,7 @@ export function HeroVideo() {
       muted
       playsInline
       preload="auto"
-      poster="/img/poster-hero.jpg"
-    >
-      <source src="/img/video.mp4" type="video/mp4" />
-    </video>
+      poster="/img/hero-perez.jpg"
+    />
   );
 }

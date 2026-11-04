@@ -52,21 +52,21 @@ const faqdata = [
   {
     question: "¿Qué otras marcas puedo encontrar en PEREZ?",
     answer:
-      "La selección se renueva según la temporada, siempre con el criterio de la casa: calidad, diseño y estilo. Las referencias del momento están en la boutique y en el catálogo online.",
+      "Nuestra selección de marcas se renueva según la temporada, priorizando siempre la calidad, el diseño y el estilo. Descubre las referencias disponibles en nuestra boutique o catálogo online.",
   },
   {
     question: "¿Puedo comprar únicamente productos de la marca PEREZ?",
     answer:
-      "Sí. La línea exclusiva PEREZ EST. 2020 está en boutique. También puedes combinarla con prendas y accesorios de las otras marcas de la casa.",
+      "Por supuesto. Nuestra línea exclusiva PEREZ EST. 2020 está disponible en nuestra boutique. También puedes combinar nuestras colecciones con una selección de prendas y accesorios de otras marcas.",
   },
   {
     question: "¿Realizan envíos o solo venden en tienda?",
     answer:
-      "Puedes comprar en la boutique o escribirnos por WhatsApp para consultar disponibilidad, reservar y coordinar envíos.",
+      "Puedes comprar directamente en nuestra boutique o contactarnos por WhatsApp para consultar disponibilidad, reservar productos y coordinar envíos de manera fácil y segura.",
   },
   {
     question: "¿Cómo puedo comprar desde la página web?",
     answer:
-      "Entra al catálogo, elige tus prendas y agrégalas al carrito. Luego pulsa Comprar por WhatsApp: se abre un mensaje con tu pedido listo para enviarnos y te atendemos por ahí.",
+      "Explora nuestro catálogo, selecciona tus productos favoritos y agrégalos al carrito. Luego, haz clic en «Comprar por WhatsApp» para enviarnos tu pedido y recibir atención personalizada.",
   },
 ];

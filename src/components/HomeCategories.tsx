@@ -4,22 +4,22 @@ const categories = [
   {
     label: "Hombres",
     desc: "Estilo atemporal, para cada ocasión.",
-    img: "/img/cat-hombres.jpg",
+    img: "/img/cat-hombres.jpg?v=2",
   },
   {
     label: "Mujeres",
     desc: "Elegancia en cada detalle.",
-    img: "/img/cat-mujeres.jpg",
+    img: "/img/cat-mujeres.jpg?v=2",
   },
   {
     label: "Kids",
     desc: "La misma esencia, para los más grandes.",
-    img: "/img/cat-kids.jpg",
+    img: "/img/cat-kids.jpg?v=2",
   },
   {
     label: "Accesorios",
     desc: "Complementa tu estilo.",
-    img: "/img/cat-accesorios.jpg",
+    img: "/img/cat-accesorios.jpg?v=2",
   },
 ];
 
@@ -36,7 +36,9 @@ export function HomeCategories() {
             <img
               src={item.img}
               alt={item.label}
-              className="h-[128px] w-[100px] shrink-0 object-cover sm:h-[140px] sm:w-[110px] xl:h-[152px] xl:w-[120px]"
+              className={`h-[128px] w-[100px] shrink-0 object-cover sm:h-[140px] sm:w-[110px] xl:h-[152px] xl:w-[120px] ${
+                item.label === "Accesorios" ? "object-center" : "object-top"
+              }`}
             />
             <div className="min-w-0">
               <p className="text-[10px] uppercase tracking-[0.2em] text-white">

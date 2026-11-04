@@ -54,7 +54,7 @@ export function CartDrawer() {
                     src={line.product.foto || line.product.fotos?.[0]}
                     alt={line.product.nombre}
                     referrerPolicy="no-referrer"
-                    className="h-24 w-[72px] object-cover"
+                    className="h-24 w-[72px] rounded-xl object-cover"
                   />
                   <div className="min-w-0 flex-1">
                     <p className="text-[11px] uppercase tracking-[0.16em]">

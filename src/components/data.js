@@ -7,14 +7,13 @@ import {
   RectangleStackIcon,
 } from "@heroicons/react/24/solid";
 
-import jeansImg from "../../public/img/benefit-jeans.jpg";
-import teeImg from "../../public/img/benefit-tee.jpg";
-import boutiqueDenim from "../../public/img/marcasmultiple/boutique-marcas-denim.jpg";
+import collectionImg from "../../public/img/nuevafoto1.PNG";
+import hombresImg from "../../public/img/cat-hombres.jpg";
 
 const benefitOne = {
   title: "La boutique",
   desc: "PEREZ es un espacio para elegir con calma. Curamos marcas y piezas que se sienten bien puestas: calidad, corte y un estilo que no grita.",
-  image: boutiqueDenim,
+  image: collectionImg,
   bullets: [
     {
       title: "Selección, no volumen",
@@ -37,8 +36,8 @@ const benefitOne = {
 const benefitTwo = {
   title: "La marca propia",
   desc: "Además de las marcas que representamos, PEREZ tiene su propia línea: básicos y denim con identidad de casa, pensados para durar.",
-  image: jeansImg,
-  images: [jeansImg, teeImg],
+  image: hombresImg,
+  images: [hombresImg, collectionImg],
   captions: ["Jean PEREZ", "Suéter PEREZ"],
   bullets: [
     {

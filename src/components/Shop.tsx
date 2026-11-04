@@ -142,7 +142,7 @@ function ProductModal({
                     type="button"
                     aria-label={`Ver foto ${photoIndex + 1}`}
                     onClick={() => setIndex(photoIndex)}
-                    className={`h-10 w-8 overflow-hidden border ${
+                    className={`h-10 w-8 overflow-hidden rounded-md border ${
                       photoIndex === index
                         ? "border-perez-negro dark:border-white"
                         : "border-transparent opacity-60 hover:opacity-100"
@@ -380,7 +380,7 @@ export function Shop({ initialCategory }: { initialCategory?: string }) {
                   onClick={() => setOpen(product)}
                   className="group block w-full text-left"
                 >
-                  <div className="aspect-[3/4] overflow-hidden bg-black/[0.04] dark:bg-perez-noche">
+                  <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-black/[0.04] dark:bg-perez-noche">
                     <img
                       src={cover}
                       alt={product.nombre}
