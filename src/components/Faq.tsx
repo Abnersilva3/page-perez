@@ -47,7 +47,7 @@ const faqdata = [
   {
     question: "¿PEREZ es solo una marca o también una tienda?",
     answer:
-      "Las dos cosas. PEREZ es una boutique y, además, tiene su propia línea. En el local encuentras la marca original y otras marcas que seleccionamos.",
+      "PEREZ es una boutique multimarca que reúne una cuidadosa selección de prendas, calzado y accesorios de diferentes marcas. Además, contamos con nuestra propia línea de ropa, diseñada bajo una identidad que refleja elegancia, autenticidad y atención al detalle. En PEREZ encontrarás variedad, estilo y una propuesta de moda con identidad propia.",
   },
   {
     question: "¿Qué otras marcas puedo encontrar en PEREZ?",

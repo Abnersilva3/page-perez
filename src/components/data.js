@@ -12,7 +12,7 @@ import hombresImg from "../../public/img/cat-hombres.jpg";
 
 const benefitOne = {
   title: "La boutique",
-  desc: "PEREZ es un espacio para elegir con calma. Curamos marcas y piezas que se sienten bien puestas: calidad, corte y un estilo que no grita.",
+  desc: "PEREZ es una boutique multimarca que reúne una cuidadosa selección de prendas, calzado y accesorios de diferentes marcas. Además, contamos con nuestra propia línea de ropa, diseñada bajo una identidad que refleja elegancia, autenticidad y atención al detalle.",
   image: collectionImg,
   bullets: [
     {
