@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   description:
     "Boutique con marca propia. En PEREZ encuentras la línea original y otras marcas seleccionadas.",
   icons: {
-    icon: [{ url: "/favicon.png?v=6", type: "image/png" }],
-    apple: "/favicon.png?v=6",
+    icon: [{ url: "/favicon.png?v=9", type: "image/png" }],
+    apple: "/favicon.png?v=9",
   },
 };
 
